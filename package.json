@@ -1,6 +1,6 @@
 {
     "name": "@ayalon/rokka-stacks-generator",
-    "version": "1.0.2",
+    "version": "1.0.3",
     "description": "Generate and upload rokka stacks based on yml files in a folder.",
     "main": "./dist/index.js",
     "bin": {
