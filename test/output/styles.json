@@ -1,0 +1,44 @@
+{
+  "slider_image": {
+    "name": "slider_image",
+    "type": "picture",
+    "stacks": [
+      {
+        "name": "slider_image-mobile",
+        "width": 730,
+        "height": 486,
+        "viewport": "mobile",
+        "mode": "fill",
+        "crop": true
+      },
+      {
+        "name": "slider_image-tablet",
+        "width": 730,
+        "height": 486,
+        "viewport": "tablet",
+        "mode": "fill",
+        "crop": true
+      },
+      {
+        "name": "slider_image-desktop",
+        "width": 730,
+        "height": 486,
+        "viewport": "desktop",
+        "mode": "fill",
+        "crop": true
+      },
+      {
+        "name": "slider_image-widescreen",
+        "width": 730,
+        "height": 486,
+        "viewport": "widescreen",
+        "mode": "fill",
+        "crop": true
+      }
+    ],
+    "ratio": {
+      "w": 730,
+      "h": 486
+    }
+  }
+}

@@ -1,0 +1,17 @@
+name: slider_image
+ratio:
+  w: 730
+  h: 486
+pictures:
+  mobile:
+    width: 730
+    height: 486
+  tablet:
+    width: 730
+    height: 486
+  desktop:
+    width: 730
+    height: 486
+  widescreen:
+    width: 730
+    height: 486
