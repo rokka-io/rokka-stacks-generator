@@ -99,10 +99,10 @@ async function start() {
     console.log(args);
 
     try {
-        const rokka = new RokkaHandler(args.options.Ro, args.options.Ra);
+        const rokka = new RokkaHandler(args.options.organization, args.options.apikey);
 
-        const src = path.join(__dirname, args.options.f);
-        const dest = path.join(__dirname, args.options.o);
+        const src = path.join(__dirname, args.options.folder);
+        const dest = path.join(__dirname, args.options.output);
 
         console.log('Source', src);
         console.log('Destination', dest);

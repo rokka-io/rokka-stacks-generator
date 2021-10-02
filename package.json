@@ -1,10 +1,10 @@
 {
-    "name": "ts-cli-template",
-    "version": "1.0.0",
-    "description": "A starter template for node CLI tools",
+    "name": "@ayalon/rokka-stacks-generator",
+    "version": "1.0.2",
+    "description": "Generate and upload rokka stacks based on yml files in a folder.",
     "main": "./dist/index.js",
     "bin": {
-        "ts-cli-template": "./dist/index.js"
+        "rokka-stacks-generator": "./dist/index.js"
     },
     "license": "MIT",
     "private": false,

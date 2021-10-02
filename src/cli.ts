@@ -6,11 +6,11 @@ const parseArguments = (): OptionValues => {
         .description('Generate rokka stacks from yml files.')
         .name('rokka-stacks-generator')
         .usage('<source-file> [options] arguments')
-        .requiredOption('-f <folder>', 'source folder')
-        .requiredOption('-o <output>', 'output folder')
-        .requiredOption('-ra <apiKey>', 'rokka API key', process.env.ROKKA_KEY)
+        .requiredOption('-f, --folder <folder>', 'source folder')
+        .requiredOption('-o, --output <output>', 'output folder')
+        .requiredOption('-ra, --apikey <apikey>', 'rokka API key', process.env.ROKKA_KEY)
         .requiredOption(
-            '-ro <organization>',
+            '-ro, --organization <organization>',
             'rokka organization',
             process.env.ROKKA_ORG
         );
