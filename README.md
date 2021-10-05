@@ -5,7 +5,7 @@ This small cli tools generates rokka stacks and uploads them to rokka.io.
 ## Installation
 Run the following command in your project folder:
 ```
-echo @ayalon:registry=https://gitlab.com/api/v4/projects/30119872/packages/npm/ >> .npmrc
+npm install rokka-stacks-generator
 ```
 Then install it with: `npm install @ayalon/rokka-stacks-generator'
 
