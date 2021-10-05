@@ -22,21 +22,21 @@ npx rokka-stacks-generator --folder /your/folder --output /output/rokka.json --a
 ```
 name: slider_image
 ratio:
-  w: 730
-  h: 486
+  w: 4
+  h: 3
 pictures:
   mobile:
-    width: 730
-    height: 486
+    width: 200
+    height: 100
   tablet:
-    width: 730
-    height: 486
+    width: 600
+    height: 400
   desktop:
-    width: 730
-    height: 486
+    width: 500
+    height: 350
   widescreen:
-    width: 730
-    height: 486
+    width: 800
+    height: 600
 
 ```
 
