@@ -14,7 +14,7 @@ Add a stacks.yml file to your component folder. The command will recursively
 search all yml files and create a json file that will be uploaded to rokka.io
 
 ```
-npx rokka-stacks-generator -folder /your/folder -output /output/rokka.json -ra your_api_key -ro your-rokka-organization
+npx rokka-stacks-generator --folder /your/folder --output /output/rokka.json --apikey your_api_key --organization your-rokka-organization
 ```
 
 ### Example
