@@ -1,11 +1,16 @@
 {
-    "name": "@ayalon/rokka-stacks-generator",
-    "version": "1.0.3",
-    "description": "Generate and upload rokka stacks based on yml files in a folder.",
+    "name": "rokka-stacks-generator",
+    "version": "1.0.4",
+    "description": "Generate and upload rokka.io stacks based on yml files in a component folder.",
     "main": "./dist/index.js",
     "bin": {
         "rokka-stacks-generator": "./dist/index.js"
     },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/rokka-io/rokka-stacks-generator.git"
+    },
+    "homepage": "https://github.com/rokka-io/rokka-stacks-generator#readme",
     "license": "MIT",
     "private": false,
     "scripts": {
