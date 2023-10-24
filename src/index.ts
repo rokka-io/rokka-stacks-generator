@@ -36,7 +36,12 @@ function mapStyleSizes(definition: StyleDefinition): StackDefinition[] {
 
     return sizes.map((size) => {
         const width = size;
-        const height = Math.round(size * ratio);
+
+        // If no ratio is defined, only resize width.
+        let height = 0;
+        if (definition.ratio) {
+            height = Math.round(size * ratio);
+        }
 
         return {
             name: `${definition.name}-${width}`,
@@ -99,7 +104,10 @@ async function start() {
     console.log(args);
 
     try {
-        const rokka = new RokkaHandler(args.options.organization, args.options.apikey);
+        const rokka = new RokkaHandler(
+            args.options.organization,
+            args.options.apikey
+        );
 
         const src = path.join(__dirname, args.options.folder);
         const dest = path.join(__dirname, args.options.output);

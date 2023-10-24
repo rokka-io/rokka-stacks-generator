@@ -16,6 +16,7 @@
     "scripts": {
         "watch": "nodemon --watch 'src/**/*.ts' --exec 'ts-node' src/index.ts",
         "start": "ts-node -r dotenv/config src/index.ts -f ../test -o ../test/output/styles.json",
+        "test": "ts-node -r dotenv/config src/index.ts -f ./../../../frontend/components -o ./../../../frontend/rokka/styles.json",
         "build": "tsc -p .",
         "lint": "tsc --noEmit && eslint . --ext .js,.jsx,.ts,.tsx",
         "pretty": "prettier --write '**/*.{js,ts}'"
@@ -26,12 +27,12 @@
         "@typescript-eslint/eslint-plugin": "^4.32.0",
         "@typescript-eslint/parser": "^4.32.0",
         "eslint": "^7.32.0",
-        "eslint-config-prettier": "8.3.0",
-        "eslint-plugin-import": "2.24.2",
-        "nodemon": "2.0.13",
-        "prettier": "2.4.1",
-        "pretty-quick": "3.1.1",
-        "ts-node": "10.2.1",
+        "eslint-config-prettier": "^8.3.0",
+        "eslint-plugin-import": "^2.24.2",
+        "nodemon": "^2.0.13",
+        "prettier": "^2.4.1",
+        "pretty-quick": "^3.1.1",
+        "ts-node": "^10.2.1",
         "typescript": "^4.4.3"
     },
     "dependencies": {
