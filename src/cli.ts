@@ -1,4 +1,4 @@
-import {Command, OptionValues} from 'commander';
+import { Command, OptionValues } from 'commander';
 
 const parseArguments = (): OptionValues => {
     const program = new Command();
@@ -8,7 +8,11 @@ const parseArguments = (): OptionValues => {
         .usage('<source-file> [options] arguments')
         .requiredOption('-f, --folder <folder>', 'source folder')
         .requiredOption('-o, --output <output>', 'output folder')
-        .requiredOption('-ra, --apikey <apikey>', 'rokka API key', process.env.ROKKA_KEY)
+        .requiredOption(
+            '-ra, --apikey <apikey>',
+            'rokka API key',
+            process.env.ROKKA_KEY
+        )
         .requiredOption(
             '-ro, --organization <organization>',
             'rokka organization',
