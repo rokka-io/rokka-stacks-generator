@@ -4,7 +4,7 @@ import path from 'path';
 import glob from 'glob';
 import yaml from 'yaml';
 import parseArgs from './cli';
-import RokkaHandler, { StyleDefinition, StackDefinition, Style } from './rokka';
+import RokkaHandler, { StyleDefinition, StackDefinition, Style, ViewportSize } from './rokka';
 
 function getFiles(folder: string): Promise<string[]> {
     return new Promise((resolve, reject) => {
@@ -57,7 +57,14 @@ function mapStylePicture(definition: StyleDefinition): StackDefinition[] {
     const pictures = definition.pictures || {};
 
     return Object.keys(pictures).map((viewport) => {
-        const { width, height, mode, crop } = pictures[viewport];
+        if (pictures[viewport] === 'noop') {
+            return {
+                name: 'dynamic/noop',
+            };
+        }
+
+        // pictures[viewport] is not 'noop', so we can be sure it's a ViewportSize.
+        const { width, height, mode, crop } = pictures[viewport] as ViewportSize;
         const modeFallback = mode ?? 'fill';
         const cropFallback = crop ?? true;
 

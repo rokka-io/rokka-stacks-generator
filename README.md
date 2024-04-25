@@ -4,10 +4,10 @@ This small cli tools generates rokka stacks and uploads them to rokka.io.
 
 ## Installation
 Run the following command in your project folder:
+
 ```
 npm install rokka-stacks-generator
 ```
-Then install it with: `npm install @ayalon/rokka-stacks-generator'
 
 ## How to use it
 Add a stacks.yml file to your component folder. The command will recursively 
@@ -19,7 +19,7 @@ npx rokka-stacks-generator --folder /your/folder --output /output/rokka.json --a
 
 ### Example
 
-```
+```yml
 name: slider_image
 ratio:
   w: 4
@@ -37,7 +37,18 @@ pictures:
   widescreen:
     width: 800
     height: 600
-
 ```
 
 Now you can run the cli command and search for the stacks.yml definitions. Provide a folder to look for.
+
+### Noop example
+
+In case you need a `noop` stack, you can generate one by defining `noop` as the value of the `pictures` viewport value.
+
+Example:
+
+```yml
+name: noop_test
+pictures:
+  sm: noop
+```

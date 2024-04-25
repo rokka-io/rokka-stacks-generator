@@ -28,11 +28,11 @@ export interface StyleDefinition {
     crop?: boolean;
     ratio?: Ratio;
     sizes?: number[];
-    pictures?: Record<string, ViewportSize>;
+    pictures?: Record<string, ViewportSize|'noop'>;
     viewport: Viewport;
 }
 
-export interface StackDefinition {
+export interface ResizeStackDefinition {
     name: string;
     width: number;
     height: number;
@@ -41,10 +41,20 @@ export interface StackDefinition {
     crop?: boolean;
 }
 
+export interface NoopStackDefinition {
+    name: 'dynamic/noop'
+}
+
+export type StackDefinition = ResizeStackDefinition|NoopStackDefinition
+
 export interface Style {
     name: string;
     ratio?: Ratio;
     stacks: StackDefinition[];
+}
+
+function isNoopStack(stack: StackDefinition): stack is NoopStackDefinition {
+    return stack.name === 'dynamic/noop'
 }
 
 export default class RokkaHandler {
@@ -60,6 +70,10 @@ export default class RokkaHandler {
     }
 
     createStack(stack: StackDefinition): Promise<StackDefinition> {
+        if (isNoopStack(stack)) {
+            return Promise.resolve(stack)
+        }
+
         const operations = [
             this.client.operations.resize(stack.width, stack.height, {
                 // @ts-ignore
@@ -75,15 +89,6 @@ export default class RokkaHandler {
                 })
             );
         }
-
-        // const options = {
-        //   'jpg.quality': 85,
-        //   'webp.quality': 85
-        // }
-
-        // const expressions = [
-        // this.client.expressions.default('options.dpr > 2', { 'jpg.quality': 80, 'webp.quality': 80 })
-        // ]
 
         const queryParams = { overwrite: true };
         return this.client.stacks
