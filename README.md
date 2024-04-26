@@ -41,14 +41,14 @@ pictures:
 
 Now you can run the cli command and search for the stacks.yml definitions. Provide a folder to look for.
 
-### Noop example
+### Reuse example
 
-In case you need a `noop` stack, you can generate one by defining `noop` as the value of the `pictures` viewport value.
+In case you need to reuse a stack, you can generate one by defining the name as the value of the `pictures` viewport value.
 
 Example:
 
 ```yml
 name: noop_test
 pictures:
-  sm: noop
+  sm: dynamic/noop
 ```

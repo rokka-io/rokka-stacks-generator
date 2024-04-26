@@ -28,7 +28,7 @@ export interface StyleDefinition {
     crop?: boolean;
     ratio?: Ratio;
     sizes?: number[];
-    pictures?: Record<string, ViewportSize|'noop'>;
+    pictures?: Record<string, ViewportSize|string>;
     viewport: Viewport;
 }
 
@@ -41,20 +41,16 @@ export interface ResizeStackDefinition {
     crop?: boolean;
 }
 
-export interface NoopStackDefinition {
-    name: 'dynamic/noop'
+export interface ReusedStackDefinition {
+    name: string;
 }
 
-export type StackDefinition = ResizeStackDefinition|NoopStackDefinition
+export type StackDefinition = ResizeStackDefinition|ReusedStackDefinition
 
 export interface Style {
     name: string;
     ratio?: Ratio;
     stacks: StackDefinition[];
-}
-
-function isNoopStack(stack: StackDefinition): stack is NoopStackDefinition {
-    return stack.name === 'dynamic/noop'
 }
 
 export default class RokkaHandler {
@@ -70,7 +66,7 @@ export default class RokkaHandler {
     }
 
     createStack(stack: StackDefinition): Promise<StackDefinition> {
-        if (isNoopStack(stack)) {
+        if (!('width' in stack && 'height' in stack)) {
             return Promise.resolve(stack)
         }
 

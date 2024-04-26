@@ -57,13 +57,13 @@ function mapStylePicture(definition: StyleDefinition): StackDefinition[] {
     const pictures = definition.pictures || {};
 
     return Object.keys(pictures).map((viewport) => {
-        if (pictures[viewport] === 'noop') {
+        if (typeof pictures[viewport] === 'string' || pictures[viewport] instanceof String) {
             return {
-                name: 'dynamic/noop',
+                name: pictures[viewport] as string,
             };
         }
 
-        // pictures[viewport] is not 'noop', so we can be sure it's a ViewportSize.
+        // pictures[viewport] has a width and a height in it, so we can safely assume it's a ViewportSize
         const { width, height, mode, crop } = pictures[viewport] as ViewportSize;
         const modeFallback = mode ?? 'fill';
         const cropFallback = crop ?? true;
