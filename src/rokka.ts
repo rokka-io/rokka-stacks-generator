@@ -28,11 +28,11 @@ export interface StyleDefinition {
     crop?: boolean;
     ratio?: Ratio;
     sizes?: number[];
-    pictures?: Record<string, ViewportSize>;
+    pictures?: Record<string, ViewportSize|string>;
     viewport: Viewport;
 }
 
-export interface StackDefinition {
+export interface ResizeStackDefinition {
     name: string;
     width: number;
     height: number;
@@ -40,6 +40,12 @@ export interface StackDefinition {
     mode?: string;
     crop?: boolean;
 }
+
+export interface ReusedStackDefinition {
+    name: string;
+}
+
+export type StackDefinition = ResizeStackDefinition|ReusedStackDefinition
 
 export interface Style {
     name: string;
@@ -60,6 +66,10 @@ export default class RokkaHandler {
     }
 
     createStack(stack: StackDefinition): Promise<StackDefinition> {
+        if (!('width' in stack && 'height' in stack)) {
+            return Promise.resolve(stack)
+        }
+
         const operations = [
             this.client.operations.resize(stack.width, stack.height, {
                 // @ts-ignore
@@ -75,15 +85,6 @@ export default class RokkaHandler {
                 })
             );
         }
-
-        // const options = {
-        //   'jpg.quality': 85,
-        //   'webp.quality': 85
-        // }
-
-        // const expressions = [
-        // this.client.expressions.default('options.dpr > 2', { 'jpg.quality': 80, 'webp.quality': 80 })
-        // ]
 
         const queryParams = { overwrite: true };
         return this.client.stacks

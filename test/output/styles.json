@@ -1,4 +1,16 @@
 {
+  "noop_test": {
+    "name": "noop_test",
+    "type": "picture",
+    "stacks": [
+      {
+        "name": "dynamic/noop"
+      },
+      {
+        "name": "slider_image"
+      }
+    ]
+  },
   "slider_image": {
     "name": "slider_image",
     "type": "picture",

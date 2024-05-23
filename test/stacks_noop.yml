@@ -1,0 +1,4 @@
+name: noop_test
+pictures:
+  sm: dynamic/noop
+  md: slider_image
